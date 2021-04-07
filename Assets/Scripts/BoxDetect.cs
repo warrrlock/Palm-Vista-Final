@@ -6,6 +6,7 @@ public class BoxDetect : MonoBehaviour
 {
     public GameObject box;
     public throwAway throwScript;
+    public GameObject PickupParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class BoxDetect : MonoBehaviour
     {
         if(other.gameObject.tag == "pickup"){
             if (throwScript.inHand == false) {
+                Instantiate(PickupParticles, transform.position, Quaternion.identity);
                 Destroy(box);
               
             }
